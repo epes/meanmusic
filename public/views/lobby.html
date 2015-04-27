@@ -1,1 +1,74 @@
-<h2>Lobby {{ id }} {{ $scope.id }}</h2>
+<div class="container">
+
+	<!-- Shows combined music -->
+	<div id="lobbyCombined">
+		<img class="img-responsive center-block" src="http://placehold.it/600x200">
+	</div>
+
+	<!-- Modal when entered -->
+	<div class="modal fade" id="inviteModal" visible="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h2 class="modal-title">Welcome to lobby {{ id }}</h4>
+				</div>
+				<div class="modal-body">
+					<h4>Invite your friends by giving them the following url:</h4>
+					<p>{{ url }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- No Instrument -->
+	<div ng-show="!instrument">
+		<h2 class="text-center">Choose an Instrument</h2>
+		<div id="lobbyInstruments" class="row">
+			<div class="col-md-4">
+				<h3 class="text-center">Guitar</h3>
+				<img class="img-responsive center-block" src="http://placehold.it/300x200" ng-click="chooseInstrument('guitar')">
+			</div>
+			<div class="col-md-4">
+				<h3 class="text-center">Drums</h3>
+				<img class="img-responsive center-block" src="http://placehold.it/300x200" ng-click="chooseInstrument('drums')">
+			</div>
+			<div class="col-md-4">
+				<h3 class="text-center">Bass</h3>
+				<img class="img-responsive center-block" src="http://placehold.it/300x200" ng-click="chooseInstrument('bass')">
+			</div>
+		</div>
+	</div>
+
+	<div ng-show="instrument">
+		<h2 class="text-center">{{ instrument }}</h2>
+
+		<div id="lobbyButtons" class="row">
+			<div class="col-sm-1">
+				<!-- placeholder -->
+			</div>
+			<div class="col-sm-2">
+				<img class="img-responsive center-block" src="http://placehold.it/100x100">
+			</div>
+			<div class="col-sm-2">
+				<img class="img-responsive center-block" src="http://placehold.it/100x100">
+			</div>
+			<div class="col-sm-2">
+				<img class="img-responsive center-block" src="http://placehold.it/100x100">
+			</div>
+			<div class="col-sm-2">
+				<img class="img-responsive center-block" src="http://placehold.it/100x100">
+			</div>
+			<div class="col-sm-2">
+				<img class="img-responsive center-block" src="http://placehold.it/100x100">
+			</div>
+			<div class="col-sm-1">
+				<!-- placeholder -->
+			</div>
+
+		</div>
+	</div>
+
+
+
+</div>

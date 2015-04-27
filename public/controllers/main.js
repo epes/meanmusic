@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('app')
-  .controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
+  .controller('MainCtrl', ['$scope', '$http', '$location', '$timeout', function($scope, $http, $location, $timeout) {
 
     $scope.lobby = {};
 
@@ -19,6 +19,10 @@ angular.module('app')
       $http.post('/api/lobby/')
         .success(function(data) {
           console.log('Data: ' + data);
+
+          $location.path('/api/lobby/' + data).replace();
+          //NOT WORKING
+
         })
         .error(function(err) {
           console.log('Error: ' + err);

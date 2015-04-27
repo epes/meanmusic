@@ -6,6 +6,8 @@ var bodyParser  = require('body-parser');
 var methodOverride = require('method-override');
 var utils     = require('./utils.js');
 
+var port = (process.env.PORT || 8080);
+
 // configuration
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
@@ -53,5 +55,5 @@ app.get('/', function(req, res) {
 });
 
 // start server
-app.listen(8080);
-console.log('mean-music started listening on port 8080');
+app.listen(port);
+console.log('mean-music started listening on port ' + port);

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>CS482 Project - Robert Eperjesi</title>
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/core.css"/>
+</head>
+<body>
+
+  <div ng-include="'includes/header.html'"></div>
+
+  <div ng-view></div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js"></script>
+  <script src="core.js"></script>
+  <script src="controllers/main.js"></script>
+  <script src="controllers/create.js"></script>
+  <script src="controllers/lobby.js"></script>
+</body>
+</html>

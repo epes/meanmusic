@@ -5,8 +5,11 @@ var morgan    = require('morgan');
 var bodyParser  = require('body-parser');
 var methodOverride = require('method-override');
 var utils     = require('./utils.js');
+var http      = require('http').Server(app);
+var io        = require('socket.io')(http);
 
-var port = (process.env.PORT || 8080);
+var PORT = (process.env.PORT || 8080);
+var LOBBY_ID_LENGTH = 3;
 
 // configuration
 app.use(express.static(__dirname + '/public'));
@@ -19,12 +22,34 @@ app.use(methodOverride());
 // models
 var lobbies = [];
 
+// socket.io
+io.on('connection', function(socket){
+  console.log('a user connected');
+
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+
+  socket.on('chat message', function(data){
+    var room = data.slice(0, LOBBY_ID_LENGTH);
+    var msg = data.slice(LOBBY_ID_LENGTH + 1);
+    console.log('room: ' + room + ' | msg: ' + msg + ' | ' + data);
+    io.to(room).emit('chat message', msg);
+  });
+
+  socket.on('join', function(lobby){
+    socket.join(lobby);
+  });
+
+
+});
+
 // routes
 // ------ API
 
   // create lobby
 app.post('/api/lobby', function(req, res) {
-  var lobbyId = utils.randomAlphaNumeric(3);
+  var lobbyId = utils.randomAlphaNumeric(LOBBY_ID_LENGTH);
   console.log("Creating new lobby: " + lobbyId);
 
   lobbies[lobbyId] = {
@@ -55,5 +80,8 @@ app.get('/', function(req, res) {
 });
 
 // start server
-app.listen(port);
-console.log('mean-music started listening on port ' + port);
+http.listen(PORT, function(){
+  console.log('mean-music started listening on port ' + PORT);
+});
+
+

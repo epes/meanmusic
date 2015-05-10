@@ -15,4 +15,19 @@ angular.module('app')
     	$scope.instrument = instrument;
     }
 
+
+    var socket = io();
+    socket.on('connect', function(){
+        socket.emit('join', $scope.id);
+    });
+
+    socket.on('playback', function(msg){
+        console.log(msg);
+    })
+
+    $scope.socketChat = function() {
+      socket.emit('chat message', $scope.id + ':msg');
+    }
+
+
   }]);

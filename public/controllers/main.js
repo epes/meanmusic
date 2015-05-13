@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('app')
-  .controller('MainCtrl', ['$scope', '$http', '$location', '$timeout', function($scope, $http, $location, $timeout) {
+  .controller('MainCtrl', ['$scope', '$http', '$window', function($scope, $http, $window) {
 
     $scope.lobby = {};
 
@@ -20,8 +20,7 @@ angular.module('app')
         .success(function(data) {
           console.log('Data: ' + data);
 
-          $location.path('/api/lobby/' + data).replace();
-          //NOT WORKING
+          $window.location.href = '/#/lobby/' + data;
 
         })
         .error(function(err) {

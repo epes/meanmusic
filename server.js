@@ -26,8 +26,17 @@ var lobbies = [];
 io.on('connection', function(socket){
   console.log('a user connected');
 
+  var user_lobby = null;
+
   socket.on('disconnect', function(){
     console.log('user disconnected');
+
+    if(user_lobby && lobbies[user_lobby]){
+      if(--lobbies[user_lobby].pop == 0){
+        lobbies[user_lobby] = undefined;
+        console.log(user_lobby + ' deleted.');
+      }
+    }
   });
 
   socket.on('tune', function(data){
@@ -36,7 +45,13 @@ io.on('connection', function(socket){
   })
 
   socket.on('join', function(lobby){
-    socket.join(lobby);
+    user_lobby = lobby;
+    if(lobbies[user_lobby]){
+      socket.join(user_lobby);
+      lobbies[user_lobby].pop++;
+    }else{
+      console.log('Trying to join a room that does not exist: ' + user_lobby);
+    }
   });
 
 });
@@ -51,8 +66,7 @@ app.post('/api/lobby', function(req, res) {
 
   lobbies[lobbyId] = {
     active: true,
-    drum: false,
-    guitar: false
+    pop: 0
   };
 
   res.send(lobbyId);
@@ -62,13 +76,12 @@ app.post('/api/lobby', function(req, res) {
 app.get('/api/lobby/:lobby_id', function(req, res) {
   var id = req.params.lobby_id;
   console.log('Getting data about lobby #' + id);
-  res.send(lobbies[req.params.lobby_id]);
-});
-
-  // update lobby #id
-app.put('/api/lobby/:lobby_id', function(req, res) {
-  var id = req.params.lobby_id;
-  res.send('Posting new data to lobby #' + id);
+  if(lobbies[id]){
+    res.send(lobbies[id]);
+  }else{
+    res.status(404);
+    res.send({ error: 'Lobby does not exist.' });
+  }
 });
 
 // ------ Front End

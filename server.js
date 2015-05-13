@@ -30,17 +30,14 @@ io.on('connection', function(socket){
     console.log('user disconnected');
   });
 
-  socket.on('chat message', function(data){
-    var room = data.slice(0, LOBBY_ID_LENGTH);
-    var msg = data.slice(LOBBY_ID_LENGTH + 1);
-    console.log('room: ' + room + ' | msg: ' + msg + ' | ' + data);
-    io.to(room).emit('chat message', msg);
-  });
+  socket.on('tune', function(data){
+    var room = data.room;
+    io.to(room).emit('playback', data);
+  })
 
   socket.on('join', function(lobby){
     socket.join(lobby);
   });
-
 
 });
 

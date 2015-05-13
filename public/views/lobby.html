@@ -20,49 +20,47 @@
 			</div>
 		</div>
 	</div>
-	
-  <button ng-click="socketChat()">Chat</button>
 
-	<!-- No Instrument -->
-	<div ng-show="!instrument">
-		<h2 class="text-center">Choose an Instrument</h2>
-		<div id="lobbyInstruments" class="row">
+	<!-- No Flavor -->
+	<div ng-show="!flavor">
+		<h2 class="text-center">Choose a Flavor</h2>
+		<div id="lobbyFlavors" class="row">
 			<div class="col-md-4">
-				<h3 class="text-center">Guitar</h3>
-				<img class="img-responsive center-block" src="http://placehold.it/300x200" ng-click="chooseInstrument('guitar')">
+				<h3 class="text-center">Kick</h3>
+				<img class="img-responsive center-block" src="http://placehold.it/300x200" ng-click="chooseFlavor('kick')">
 			</div>
 			<div class="col-md-4">
 				<h3 class="text-center">Drums</h3>
-				<img class="img-responsive center-block" src="http://placehold.it/300x200" ng-click="chooseInstrument('drums')">
+				<img class="img-responsive center-block" src="http://placehold.it/300x200" ng-click="chooseFlavor('drums')">
 			</div>
 			<div class="col-md-4">
 				<h3 class="text-center">Bass</h3>
-				<img class="img-responsive center-block" src="http://placehold.it/300x200" ng-click="chooseInstrument('bass')">
+				<img class="img-responsive center-block" src="http://placehold.it/300x200" ng-click="chooseFlavor('bass')">
 			</div>
 		</div>
 	</div>
 
-	<div ng-show="instrument">
-		<h2 class="text-center">{{ instrument }}</h2>
+	<div ng-show="flavor">
+		<h2 class="text-center">{{ flavor }}</h2>
 
 		<div id="lobbyButtons" class="row">
 			<div class="col-sm-1">
 				<!-- placeholder -->
 			</div>
 			<div class="col-sm-2">
-				<img class="img-responsive center-block" src="http://placehold.it/100x100">
+				<img class="img-responsive center-block" src="http://placehold.it/100x100" ng-click="sendTune(1)">
 			</div>
 			<div class="col-sm-2">
-				<img class="img-responsive center-block" src="http://placehold.it/100x100">
+				<img class="img-responsive center-block" src="http://placehold.it/100x100" ng-click="sendTune(2)">
 			</div>
 			<div class="col-sm-2">
-				<img class="img-responsive center-block" src="http://placehold.it/100x100">
+				<img class="img-responsive center-block" src="http://placehold.it/100x100" ng-click="sendTune(3)">
 			</div>
 			<div class="col-sm-2">
-				<img class="img-responsive center-block" src="http://placehold.it/100x100">
+				<img class="img-responsive center-block" src="http://placehold.it/100x100" ng-click="sendTune(4)">
 			</div>
 			<div class="col-sm-2">
-				<img class="img-responsive center-block" src="http://placehold.it/100x100">
+				<img class="img-responsive center-block" src="http://placehold.it/100x100" ng-click="sendTune(5)">
 			</div>
 			<div class="col-sm-1">
 				<!-- placeholder -->

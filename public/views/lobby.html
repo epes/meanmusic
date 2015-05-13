@@ -1,45 +1,22 @@
+<nav class="top-nav {{ nav_color }}">
+	<div id="lobby-visualizer-wrapper">
+	TOP NAV
+	</div>
+</nav>
+
 <div class="container">
 
-	<!-- Shows combined music -->
-	<div id="lobbyCombined">
-		<img class="img-responsive center-block" src="http://placehold.it/600x200">
-	</div>
-
-	id:{{ id }} pop: {{ pop }}
-
-	<!-- No Flavor -->
-	<div ng-show="!flavor">
-		<h2 class="text-center">Choose a Flavor</h2>
-		<div id="lobbyFlavors" class="row">
-			<div class="col-md-4">
-				<h3 class="text-center">Kick</h3>
-				<img class="img-responsive center-block" src="http://placehold.it/300x200" ng-click="chooseFlavor('kick')">
-			</div>
-		</div>
-	</div>
+	id:{{ id }} pop: {{ pop }} flavor: {{ flavor }}
 
 	<div ng-show="flavor">
-		<h2 class="text-center">{{ flavor }}</h2>
 
-		<div id="lobbyButtons" class="row">
-			<div class="col-sm-1">
-				<!-- placeholder -->
+		<div class="row">
+			<div class="col s3" ng-repeat="button in buttons">
+				<a class="waves-effect waves-light btn {{button.color}} sound-btn" ng-click="sendTune(button.number)"></a>
 			</div>
-			<div class="col-sm-2">
-				<img class="img-responsive center-block" src="http://placehold.it/100x100" ng-click="sendTune(1)">
-			</div>
-			<div class="col-sm-2">
-				<img class="img-responsive center-block" src="http://placehold.it/100x100" ng-click="sendTune(2)">
-			</div>
-			<div class="col-sm-2">
-				<img class="img-responsive center-block" src="http://placehold.it/100x100" ng-click="sendTune(3)">
-			</div>
-			<div class="col-sm-2">
-				<img class="img-responsive center-block" src="http://placehold.it/100x100" ng-click="sendTune(4)">
-			</div>
-			<div class="col-sm-1">
-				<!-- placeholder -->
-			</div>
+		</div>
+
+		<h2 class="text-center">{{ flavor }}</h2>
 
 		</div>
 	</div>

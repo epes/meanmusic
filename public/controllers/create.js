@@ -5,10 +5,7 @@ angular.module('app')
 
   $http.post('/api/lobby/')
     .success(function(lobby) {
-      console.log('Data: ' + lobby);
-
       $window.location.href = '/#/' + lobby;
-
     })
     .error(function(err) {
       console.log('Error: ' + err);

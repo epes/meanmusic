@@ -24,13 +24,9 @@ var lobbies = [];
 
 // socket.io
 io.on('connection', function(socket){
-  console.log('a user connected');
-
   var user_lobby = null;
 
   socket.on('disconnect', function(){
-    console.log('user disconnected');
-
     if(user_lobby && lobbies[user_lobby]){
       if(--lobbies[user_lobby].pop == 0){
         lobbies[user_lobby] = undefined;
@@ -50,7 +46,7 @@ io.on('connection', function(socket){
       socket.join(user_lobby);
       lobbies[user_lobby].pop++;
     }else{
-      console.log('Trying to join a room that does not exist: ' + user_lobby);
+      //console.log('Trying to join a room that does not exist: ' + user_lobby);
     }
   });
 
@@ -75,7 +71,6 @@ app.post('/api/lobby', function(req, res) {
   // get info about lobby #id
 app.get('/api/lobby/:lobby_id', function(req, res) {
   var id = req.params.lobby_id;
-  console.log('Getting data about lobby #' + id);
   if(lobbies[id]){
     res.send(lobbies[id]);
   }else{

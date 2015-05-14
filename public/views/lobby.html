@@ -1,26 +1,32 @@
-<nav class="top-nav {{ nav_color }}">
-	<div id="lobby-visualizer-wrapper">
-	TOP NAV
+<div id="flavor-nav">
+	<ul id="slide-out" class="side-nav">
+		<li ng-repeat="flav in flavors">
+			<a ng-click="chooseFlavor(flav)"> {{ flav | uppercase }}</a>
+		</li>
+  </ul>
+
+  <div class="fixed-action-btn" style="bottom: 45px; left: 24px;">
+	  <a class="btn-floating btn-large pink button-collapse" data-activates="slide-out">
+	    <i class="mdi-navigation-menu small"></i>
+	  </a>
 	</div>
-</nav>
+</div>
 
-<div class="container">
+<div id="pop-nav">
+	<span class="badge orange-text"><i class="mdi-social-people small"></i>{{ pop }}</span>
+</div>
 
-	id:{{ id }} pop: {{ pop }} flavor: {{ flavor }}
-
-	<div ng-show="flavor">
-
-		<div class="row">
-			<div class="col s3" ng-repeat="button in buttons">
-				<a class="waves-effect waves-light btn {{button.color}} sound-btn" ng-click="sendTune(button.number)"></a>
-			</div>
-		</div>
-
-		<h2 class="text-center">{{ flavor }}</h2>
-
+<div class="{{ nav_color }}">
+	<div id="visualizer-outer" class="transparent">
+		<div id="visualizer-inner" style="-ms-transform: scale({{ visualizer_scale }}); -webkit-transform: scale({{ visualizer_scale }});	transform: scale({{ visualizer_scale }});">
 		</div>
 	</div>
+</div>
 
-
-
+<div id="lobby-buttons" class="container">
+	<div class="row">
+		<div class="col s3" ng-repeat="button in buttons">
+			<a class="waves-effect waves-light btn {{button.color}} sound-btn" ng-click="sendTune(button.number)"></a>
+		</div>
+	</div>
 </div>

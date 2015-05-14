@@ -6,6 +6,10 @@ h3 {
 	font-weight: 300;
 }
 
+nav {
+	z-index: 100;
+}
+
 .sound-btn {
 	width: 100%;
 	height: 12vw;
@@ -23,6 +27,42 @@ h3 {
 	margin-top: 80px;
 }
 
-#lobby-visualizer-wrapper {
-	
+#visualizer-outer {
+	width: 100vw;
+	height: 30vh;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#visualizer-inner {
+	border-radius: inherit;
+	width: inherit;
+	height: inherit;
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	-ms-transform: scale(0);
+	-webkit-transform: scale(0);
+	transform: scale(0);
+	transition: all .2s ease-in-out;
+}
+
+#flavor-nav ul li a {
+	font-weight: 900;
+}
+
+#pop-nav {
+	position: fixed;
+	bottom: 100px; 
+	right: 24px;
+	width: 100%;
+}
+
+#pop-nav i {
+	vertical-align: middle;
+}
+
+#lobby-buttons {
+	margin-top: 2em;
 }

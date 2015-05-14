@@ -31,7 +31,7 @@ angular.module('app')
     $scope.visualizer_scale = 0;
 
     // check if lobby exists
-    //initialCheck();
+    initialCheck();
 
     $scope.chooseFlavor = function(flavor){
     	$scope.flavor = flavor;

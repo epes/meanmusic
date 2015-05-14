@@ -24,7 +24,7 @@ angular.module('app')
       }
     ]
 
-    $scope.flavors = ['kick'];
+    $scope.flavors = ['bells', 'box', 'drum', 'fresh', 'herman', 'kick', 'loop', 'vox'];
     $scope.flavor = $scope.flavors[0];    
     $scope.nav_color = 'pink';
 
@@ -87,7 +87,7 @@ angular.module('app')
             });
         };
 
-        $document.bind("keydown", function(event){
+        $document.bind("keyup", function(event){
           switch(event.which){
             case 65:
               $scope.sendTune(1);

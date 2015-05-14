@@ -66,3 +66,7 @@ nav {
 #lobby-buttons {
 	margin-top: 2em;
 }
+
+#lobby-buttons h1 {
+	text-align:center;
+}

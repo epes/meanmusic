@@ -2,7 +2,7 @@
 
 angular.module('app')
   .controller('InvalidCtrl', ['$scope', '$window', '$timeout', function($scope, $window, $timeout) {
-  	$scope.countdown = 2;
+  	$scope.countdown = 6;
 
   	countdown();
 

@@ -52,14 +52,19 @@ nav {
 	font-weight: 900;
 }
 
-#pop-nav {
+#nav-btn {
+	bottom: 95px;
+	left: 24px;
+}
+
+#pop-display {
 	position: fixed;
-	bottom: 100px; 
+	bottom: 140px; 
 	right: 24px;
 	width: 100%;
 }
 
-#pop-nav i {
+#pop-display i {
 	vertical-align: middle;
 }
 
@@ -69,4 +74,16 @@ nav {
 
 #lobby-buttons h1 {
 	text-align:center;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 20px 0px;
+	color: white;
+}
+
+footer a {
+	font-weight: 300;
 }

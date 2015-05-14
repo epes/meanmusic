@@ -1,35 +1,48 @@
-<div id="flavor-nav">
-	<ul id="slide-out" class="side-nav">
-		<li ng-repeat="flav in flavors">
-			<a ng-click="chooseFlavor(flav)"> {{ flav | uppercase }}</a>
-		</li>
-  </ul>
+<main>
+	<div id="flavor-nav">
+		<ul id="slide-out" class="side-nav">
+			<li ng-repeat="flav in flavors">
+				<a ng-click="chooseFlavor(flav)"> {{ flav | uppercase }}</a>
+			</li>
+	  </ul>
 
-  <div class="fixed-action-btn" style="bottom: 45px; left: 24px;">
-	  <a class="btn-floating btn-large {{ nav_color }} button-collapse" data-activates="slide-out">
-	    <i class="mdi-navigation-menu small"></i>
-	  </a>
-	</div>
-</div>
-
-<div id="pop-nav">
-	<span class="badge {{ nav_color }}-text"><i class="mdi-social-people small"></i>{{ pop }}</span>
-</div>
-
-<div class="{{ nav_color }}">
-	<div id="visualizer-outer" class="transparent">
-		<div id="visualizer-inner" style="-ms-transform: scale({{ visualizer_scale }}); -webkit-transform: scale({{ visualizer_scale }});	transform: scale({{ visualizer_scale }});">
+	  <div id="nav-btn" class="fixed-action-btn">
+		  <a class="btn-floating btn-large {{ nav_color }} button-collapse" data-activates="slide-out">
+		    <i class="mdi-navigation-menu small"></i>
+		  </a>
 		</div>
 	</div>
-</div>
 
-<div id="lobby-buttons" class="container">
-	<div class="row">
-		<div class="col s3" ng-repeat="button in buttons">
-			<a class="waves-effect waves-light btn {{button.color}} sound-btn" ng-click="sendTune(button.number)"></a>
+	<div id="pop-display">
+		<span class="badge {{ nav_color }}-text"><i class="mdi-social-people small"></i>{{ pop }}</span>
+	</div>
+
+	<div class="{{ nav_color }}">
+		<div id="visualizer-outer" class="transparent">
+			<div id="visualizer-inner" style="-ms-transform: scale({{ visualizer_scale }}); -webkit-transform: scale({{ visualizer_scale }});	transform: scale({{ visualizer_scale }});">
+			</div>
 		</div>
 	</div>
-	<div class="row">
-		<h1 class="center {{ nav_color }}-text">{{ flavor }}</h1>
+
+	<div id="lobby-buttons" class="container">
+		<div class="row">
+			<div class="col s3" ng-repeat="button in buttons">
+				<a class="waves-effect waves-light btn {{button.color}} sound-btn" ng-click="sendTune(button.number)"></a>
+			</div>
+		</div>
+		<div class="row">
+			<h1 class="center {{ nav_color }}-text">{{ flavor }}</h1>
+		</div>
 	</div>
-</div>
+
+	<a href="https://github.com/epes/meanmusic"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+</main>
+
+<footer class="{{ nav_color }}">
+  <div class="footer-copyright">
+    <div class="container">
+    © 2015 Robert Eperjesi
+    <a class="grey-text text-lighten-4 right" href="http://eperjesi.me">eperjesi.me</a>
+    </div>
+  </div>
+</footer>
